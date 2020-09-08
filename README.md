@@ -20,26 +20,17 @@ The main goals of the tutorial are to:
 
 - Get a `git` client
 - Make a GitHub account
-- Don't be afraid to share code
+---
 - Create a local repository
 - Add your code to your local repository
 - Create a GitHub repository
 - Push your local repository to GitHub
 - View it online
 ---
-- (if there's time)
 - View someone else's repository online
 - Clone someone else's respository
 - Modify someone else's code
 - Create a PR
----
-- (Bonus material. Not explained, just introduced. If people like the
-  look of it, I could spin it off into a separate tutorial)
-- Gists
-- Jupyter notebooks
-- Basic testing
-- Basic performance tuning
-
 
 
 # 2. Prerequisite Steps
@@ -52,9 +43,9 @@ after:
 
     - At its core, `git` is a command-line application for creating
       and manipulating repositories. Learning to use the `git`
-      command-line directly can be useful, but that takes
-      time. Especially when starting out, it's better to use a git
-      client that simplifies the process with a nice UI.
+      command-line directly can be useful, but that takes time. When
+      starting out, it's better to use a git client that simplifies
+      the process with a nice UI.
 
     - **List of clients
       [here](https://git-scm.com/downloads/guis)**. Recommendations
