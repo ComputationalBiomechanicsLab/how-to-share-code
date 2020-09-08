@@ -14,6 +14,8 @@ The main goals of the tutorial are to:
 
 - Show github PRing, reviewing, etc.
 
+- Waste time showing TortoiseGit, when Github desktop is clearly superior.
+
 
 
 # 1. Overview
