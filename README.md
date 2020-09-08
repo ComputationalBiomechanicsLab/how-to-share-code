@@ -250,7 +250,7 @@ directory.
 
 ### 3.b.2. Create and Use a Local Repository
 
-[🎥 VIDEO: Doing this in Windows with GitHub desktop](https://youtu.be/BhPsfpsw7Ww)
+[🎥 VIDEO: Doing this in Windows with GitHub desktop](https://youtu.be/WVzpaXQSQ50)
 [🎥 VIDEO: Doing this in Windows with TortoiseGit](https://youtu.be/8Pu1_89hPIk)
 
 Any directory can be augmented with a git repository, such that any
@@ -268,7 +268,8 @@ point in time.
 
 ## 3.c. Using GitHub
 
-[🎥 video of these steps](https://youtu.be/BOOluANRAlg)
+[🎥 VIDEO: Doing this in Windows with GitHub desktop](https://youtu.be/9YhbUwqcHzw)
+[🎥 VIDEO: Doing this in Windows with TortoiseGit](https://youtu.be/BOOluANRAlg)
 
 GitHub is an online service for hosting git repositories.
 
@@ -290,7 +291,7 @@ makes it easier to share codebases.
 
 ## 4.c. Collaborating on GitHub
 
-[🎥 video of these steps](https://youtu.be/S6n5HvWy6UQ)
+[🎥 Doing this in Windows with TortoiseGit](https://youtu.be/S6n5HvWy6UQ)
 
 GitHub is specifically designed to make it easy to collaborate on
 codebases. It's geared towards software developer teams, but the
