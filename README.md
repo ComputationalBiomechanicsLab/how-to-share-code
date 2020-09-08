@@ -12,25 +12,34 @@ The main goals of the tutorial are to:
 
 - Show uploading git repositories to github
 
-- (if time) Show github PRing, reviewing, etc.
+- Show github PRing, reviewing, etc.
 
 
 
-# 1. tl;dr (quickstart)
+# 1. Overview
 
-- Get a `git` client
-- Make a GitHub account
+- (prerequisite steps)
+- Get a `git` client ([list](https://git-scm.com/downloads/guis),
+  [recommended](https://tortoisegit.org/))
+- Make a GitHub [here](https://github.com/)
 ---
+- (during)
 - Create a local repository
 - Add your code to your local repository
 - Create a GitHub repository
 - Push your local repository to GitHub
 - View it online
----
 - View someone else's repository online
 - Clone someone else's respository
 - Modify someone else's code
 - Create a PR
+---
+- Useful Links:
+    - [CBL Github](https://github.com/ComputationalBiomechanicsLab)
+    - [gist](https://gist.github.com/), for quick one-off scripts
+    - [learnxinyminutes](https://learnxinyminutes.com/). Specifically,
+      it has a [git](https://learnxinyminutes.com/docs/git/) page for
+      more advanced users
 
 
 # 2. Prerequisite Steps
@@ -39,7 +48,7 @@ To save some time, these are things that I will skip over in this
 tutorial. You can do these ahead of time (if you plan to go along) or
 after:
 
-- Get a `git` client
+1. Get a `git` client
 
     - At its core, `git` is a command-line application for creating
       and manipulating repositories. Learning to use the `git`
@@ -56,7 +65,7 @@ after:
       because it's free and one of the oldest clients (so there's
       plenty of guides on the internet for it, etc.).
 
-- Create an account on GitHub
+1. Create an account on GitHub
 
     - Browse to [github.com](https://github.com/)
     - Create an account through the landing page
@@ -83,118 +92,124 @@ reservations include:
 3. What if someone steals my code?
 
 All completely normal concerns to have. However, let me convince you
-that each of those concerns aren't necessarily as bad as they look.
+that each of those concerns aren't *necessarily* as bad as they feel.
 
 
 ### 3.a.1 What if someone finds a bug?
 
-So what?
+I'll let you in on a secret: >95 % of code is buggy in *some*
+way. Even the most heavily scrutinized codebases contain bugs.
 
-I'll let you in on a secret: >95 % of code is buggy in *some* way. If
-your code is relevant enough for other developers to find bugs in your
-source code then you are already in a privileged minority because the
-vast majority of code out there barely qualifies as useful enough for
-other developers to read.
+If your code is relevant enough for other people to spend their time
+finding bugs in your source code then congratulations: you might not
+feel it, but your code is already in the privileged minority of "code
+that's important enough to be reviewed".
 
-Sure, it's mildly embarrassing for some other developer to point out
-that your code is broken in some way--I hate it when they do that--but
-that mild embarrassment might be saving you from a later major
-embarrassment when you find, after months of number crunching, that
-your code produces sane-looking-but-ultimately-garbage data and you
-end up having to redo everything.
+The vast majority of code on GitHub never gets reviewed--or even
+ran--by someone else. It's depressing, but true. So if your concern is
+that someone finds a bug, try to take a positive spin on it: someone
+was keen enough to understand your work that they found a bug.
+
+Sure, it's mildly embarrassing that someone then (usually, publically,
+on a GitHub issue) calls out your bug--critique always feels
+awkward--but that mild embarrassment might save you from a later
+(major) embarassment, such as the bug going undetected in your code
+for months, completely torpedoing a study.
 
 
 ### 3.a.2 What if someone thinks the code is low quality?
 
-There is no such thing as "absolute quality" in software.
+"Absolute quality" does not exist in software.
 
 Sure, there's extremely hacky and hard-to-read patterns out there, but
 there's no such thing as "perfect" quality - especially when it comes
 to research codes.
 
-The NASA mars rover developers have a bunch of extra guidelines to
-ensure that their code is high-quality enough to run remotely on
-another planet
-([source](https://medium.com/better-programming/the-power-of-10-nasas-rules-for-coding-43ae1764f73d)). Those
-guidelines can make the code *uglier* but *more robust*. Effectively,
-they sacrifice one quality metric (easiness to read) to gain in
-another (robustness). Same goes for whoever's writing pacemaker
-firmware, or Facebook, or World of Warcraft, or the software that
-makes my phone routinely forget my email credentials.
+All codebases are a result of their constraints. Code that's rushed to
+demo a tech feature at a conference is going to be *a lot* hackier
+than the code that keeps your washing machine from shaking itself
+apart.
 
-You wouldn't want to write your code the way NASA writes theirs: doing
-that makes development *very* slow. What you, as a researcher,
-probably want is to get something working fairly quickly. You don't
-really necessarily care about memory layout, or allocations, or tricky
-edge cases. Good. That's completely normal. Now take the extra "leap"
-and realize that it's also completely normal for a codebase to be
-somewhat hacky in its early phases entirely because the objective of
-most research codes is to get something working quickly.
+You wouldn't want to write your code the way NASA writes the Mars
+Rover software: doing it that way makes development *very* slow. What
+you, as a researcher, probably want is to get something working fairly
+quickly. You don't really necessarily care about memory layout, or
+allocations, or tricky edge cases. That's completely normal - it takes
+*years* to learn some of this stuff. Now take the extra "leap" and
+realize that it's also completely normal for a codebase to be somewhat
+hacky, or somewhat buggy, in its early prototypical phases because the
+objective of most research codes is to get something working quickly.
 
-What I mean to point out is that being afraid that your code isn't
-"good enough for the internet" kind of ignores the fact that cat memes
-are good enough for the internet. It also ignores the fact that most
-closed-source research codes typically are very hacky *and* end up
-being "good enough for an international journal". Think about that.
+What I'm trying to articulate is that being afraid that your code
+isn't "good enough for the internet" kind of ignores the fact that cat
+memes are "good enough for the internet". It also ignores the fact
+that most closed-source research codes you read about in journal
+papers are typically very hacky *and* end up being "good enough for an
+international journal". Think about that.
 
 
 ### 3.a.3 What if someone *steals* my code
 
-**This is probably the most legit concern I come across**.
+**This is probably the most legit concern I come across**. If you're
+writing research code that's:
 
-If you're writing extremely secret code that's:
+1. For a competitive research field where the other academics are
+   known to be complete dicks who will literally rip you off at any
+   opportunity to scoop you before you publish.
 
-- For a competitive research field where the other academics are known
-  to be complete dicks who will literally rip you off, or scoop you
-  before you publish.
-
-- And the code is so easy to understand that they can just copy +
-  paste + modify the code into some other project and entirely cut you
-  off
+2. And the code is so easy to understand that they can just copy +
+   paste + modify the code into some other project and entirely cut
+   you off.
 
 **Then you should consider--at least pre-publication--putting your
 code into a private/organizational repository.** You can make the code
-public later, once everyone's bored by the novelty.
+public after publishing in a click of a button.
 
-However, don't overestimate other developers *too* much. In my
-experience, people are far too lazy to read through other people's
-code. If your codebase is even slightly complex, or involves
-maintenance (all non-trivial codebases need maintenance) then it will
-take a fair amount of effort for an external researcher to maliciously
-outright steal the code.
+However, don't overestimate competitors *too* much. In my experience,
+people are far too lazy to read through other people's code. If your
+codebase is even slightly complex, or involves maintenance (all
+non-trivial codebases need maintenance) then it will take a fair
+amount of effort for an external researcher to maliciously outright
+steal it.
 
-They will probably realize that it's much more efficient for them to
-set up a collaboration in which you help them run your code, or you
-agree to enhance your code for their research. This is actually handy,
-because it means you can dovetail them trying to use your code (by
-trying out whatever's in the repo) into a collaboration.
+What other teams will *probably* realize, after seeing + trying your
+open-source project, is that it's much more efficient for them to
+collaborate with you. So you might end up in a collaboration in which
+you help them run your code, or you agree to enhance your code for
+their research.
 
-This paranoia only really applies to the core codes/algorithms you
-plan on publishing, which is *probably* a minority of the code
-researchers write, because the majority of code researchers write is
-typically things like "some script for processing IMU data" and "some
-other script that converts such-and-such a file into an OpenSim file"
-or "some script I used to download all the model files from that
-website".
+Being scared of theft mostly only applies to the core
+codes/algorithms/results you plan on publishing. This is *usually* a
+minority of the code researchers write, because the majority is stuff
+like:
 
----
+- Some script for converting IMU data into a CSV file
+- Some other script that converts such-and-such a file into an OpenSim
+  model
+- Some little framework that's used for downloading datasets over the
+  internet
 
-So, hopefully this has convinced you that sharing code isn't a big
-deal. Sure, there's going to be bugs and there's going to be things
-that can be improved. That's always the case.
+All stuff that's insanely useful for day-to-day research, but probably
+can't be used directly in a publication. That's the kind of code that
+benefits most from sharing, because there's probably 10 different
+scripts for processing IMU data in the wild.
+
+### 3.b.4. Summary
+
+Hopefully this has convinced you that sharing code isn't a big
+deal. Sure, there's going to be bugs and there's going to be things in
+your code that can be improved. That's always the case.
 
 The main benefit to focus on is that sharing code makes it *much*
-easier to collaborate on code-heavy projects. If you have a script
-that (e.g.) processes IMU data and "mostly works" for your purposes,
-then when some other researcher needs to process IMU data you can just
-give them a GitHub link to your script.
+easier to collaborate. If you have a script that (e.g.) processes IMU
+data and "mostly works" for your purposes, then when some other
+researcher needs to process IMU data you can just give them a GitHub
+link to your script.
 
-It might not work on their computer. They might need to modify your
-script a bit. But they might fix those problems so they can move
-forward, and they might share those fixes with you. That process helps
-the researcher (who doesn't have to start from scratch writing an IMU
-processing script) and it helps you (because they made your code a
-little bit better).
+The script might not work on their computer. They might need to modify
+your script a bit. But they might fix those problems. And they might
+share those fixes with you, which would be useful. That's open-source
+in a nutshell.
 
 
 ## 3.b. Getting Started with Git (Locally)
@@ -212,9 +227,10 @@ code.
 Ignoring more advanced use-cases, a git
 [commit](https://git-scm.com/docs/git-commit) effectively snapshots
 one directory. So, when writing projects, try to make sure that all
-the scripts you write+need are in a single directory.
+the scripts and configuration files you write and need are in a single
+directory.
 
-- This does not mean that every single file you use needs to be in
+- This does not mean that every single file you use *needs* to be in
   that directory. It's completely normal to (e.g.) hold large
   experimental data files somewhere else
   (e.g. `C:\Data\Experiment_1\etc`).
@@ -229,17 +245,25 @@ the scripts you write+need are in a single directory.
   scripts from random websites, snippet archives, network drives,
   etc. and it's going to take a lot of time for someone to grab those
   libraries, then include them in your repository. In my experience,
-  developers tend to prefer ease-of-use much more than "correctness".
+  people tend to prefer ease-of-use much more than what's "correct".
 
 
 ### 3.b.2. Add the directory into a local repository
 
+Any directory can be augmented with a git repository, such that any
+changes in that directory can later be comitted to the git repository.
+
+Go to your directory and `Initialize a git repo` (TODO: windows?)
 - `init`
 - `add`
 - `commit`
 
 
 ### 3.b.3. Try editing things, rollback, etc.
+
+Once you have comitted the `add`ed files to your local git repository,
+you have created an immutable snapshot of your work at a particular
+point in time.
 
 
 ### 3.b.4 (bonus) mirroring, archiving, etc.
@@ -279,8 +303,3 @@ useful for smaller research teams.
 ### 4.c.3. Edit Something
 
 ### 4.c.4. Create a PR
-
-
-## 5.c. Additional Tools/Notes
-
-- Gist
