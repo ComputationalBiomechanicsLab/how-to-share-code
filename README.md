@@ -250,7 +250,8 @@ directory.
 
 ### 3.b.2. Create and Use a Local Repository
 
-[🎥 video of these steps](https://youtu.be/8Pu1_89hPIk)
+[🎥 VIDEO: Doing this in Windows with GitHub desktop](https://youtu.be/BhPsfpsw7Ww)
+[🎥 VIDEO: Doing this in Windows with TortoiseGit](https://youtu.be/8Pu1_89hPIk)
 
 Any directory can be augmented with a git repository, such that any
 changes in that directory can later be comitted to the git repository.
