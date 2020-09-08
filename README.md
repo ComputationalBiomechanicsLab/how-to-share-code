@@ -248,7 +248,9 @@ directory.
   people tend to prefer ease-of-use much more than what's "correct".
 
 
-### 3.b.2. Add the directory into a local repository
+### 3.b.2. Create and Use a Local Repository
+
+[video of these steps 🎥](https://youtu.be/8Pu1_89hPIk)
 
 Any directory can be augmented with a git repository, such that any
 changes in that directory can later be comitted to the git repository.
@@ -258,15 +260,9 @@ Go to your directory and `Initialize a git repo` (TODO: windows?)
 - `add`
 - `commit`
 
-
-### 3.b.3. Try editing things, rollback, etc.
-
 Once you have comitted the `add`ed files to your local git repository,
 you have created an immutable snapshot of your work at a particular
 point in time.
-
-
-### 3.b.4 (bonus) mirroring, archiving, etc.
 
 
 ## 3.c. Using GitHub
