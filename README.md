@@ -14,6 +14,8 @@ The main goals of the tutorial are to:
 
 - Show github PRing, reviewing, etc.
 
+- Make the videos better.
+
 
 
 # 1. Overview
