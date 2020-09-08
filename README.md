@@ -291,7 +291,8 @@ makes it easier to share codebases.
 
 ## 4.c. Collaborating on GitHub
 
-[🎥 Doing this in Windows with TortoiseGit](https://youtu.be/S6n5HvWy6UQ)
+[🎥 VIDEO: Doing this in Windows with GitHub desktop](https://youtu.be/I649yZ4IAcw)
+[🎥 VIDEO: Doing this in Windows with TortoiseGit](https://youtu.be/S6n5HvWy6UQ)
 
 GitHub is specifically designed to make it easy to collaborate on
 codebases. It's geared towards software developer teams, but the
