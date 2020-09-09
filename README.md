@@ -3,6 +3,8 @@
 This repo contains notes for a tutorial given during a CBL meeting on
 9th September 2020.
 
+[🎥 VIDEO: recording of the tutorial 🎥](https://youtu.be/nPYbb6QO_SA)
+
 The main goals of the tutorial are to:
 
 - Encourage people to share research codes, even if those codes aren't
