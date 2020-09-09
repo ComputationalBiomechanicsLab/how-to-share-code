@@ -48,6 +48,16 @@ To save some time, these are things that I will skip over in this
 tutorial. You can do these ahead of time (if you plan to go along) or
 after:
 
+1. Get `git`
+
+    - [All downloads](https://git-scm.com/downloads). [Windows download](https://git-scm.com/download/win).
+
+    - `git` is the core command-line utility that "does the work".
+       Some clients (below) include git, but it's usually best to
+       also install standalone `git` also, because some clients do
+       not include `git` and some online guides will describe how
+       to do things in "pure" `git`, rather than through a UI.
+
 1. Get a `git` client
 
     - At its core, `git` is a command-line application for creating
@@ -61,9 +71,9 @@ after:
       below are just soft guidelines. Almost all clients will be able
       to perform the demonstrated workflow.
 
-    - **This tutorial**: uses [TortoiseGit](https://tortoisegit.org/),
-      because it's free and one of the oldest clients (so there's
-      plenty of guides on the internet for it, etc.).
+    - **This tutorial**: uses the [GitHub Desktop](https://desktop.github.com/),
+      because it's free and integrates with GitHub fairly well. Once
+      you install it, be sure to log in to your GitHub account in it.
 
 1. Create an account on GitHub
 
@@ -114,7 +124,7 @@ Sure, it's mildly embarrassing that someone then (usually, publically,
 on a GitHub issue) calls out your bug--critique always feels
 awkward--but that mild embarrassment might save you from a later
 (major) embarassment, such as the bug going undetected in your code
-for months, completely torpedoing a study.
+for months and completely torpedoing a study.
 
 
 ### 3.a.2 What if someone thinks the code is low quality?
@@ -123,29 +133,39 @@ for months, completely torpedoing a study.
 
 Sure, there's extremely hacky and hard-to-read patterns out there, but
 there's no such thing as "perfect" quality - especially when it comes
-to research codes.
+to research code.
 
 All codebases are a result of their constraints. Code that's rushed to
 demo a tech feature at a conference is going to be *a lot* hackier
 than the code that keeps your washing machine from shaking itself
 apart.
 
-You wouldn't want to write your code the way NASA writes the Mars
-Rover software: doing it that way makes development *very* slow. What
-you, as a researcher, probably want is to get something working fairly
-quickly. You don't really necessarily care about memory layout, or
-allocations, or tricky edge cases. That's completely normal - it takes
-*years* to learn some of this stuff. Now take the extra "leap" and
-realize that it's also completely normal for a codebase to be somewhat
-hacky, or somewhat buggy, in its early prototypical phases because the
-objective of most research codes is to get something working quickly.
+NASA writes extremely high-quality code, but you wouldn't want to write
+your code the way NASA writes theirs. They have extremely strict guidelines
+on how to write code because (e.g.) a NASA satellite can feasibly be left
+running unattended for decades. 
+
+Writing software that way makes development *very* slow, which isn't 
+what you, as a researcher, probably want. You *probably* prefer to have
+something working fairly quickly. You probably don't necessarily care 
+about memory layout, or allocations, or tricky edge cases. This is
+actually your strength, because it takes professional developers *years*
+to learn some of that stuff.
+
+Once you accept that "quality" is just a tradeoff, and that you're in a
+field where `speed > simplicity > quality`, then I'd like to invite you
+to take the extra "leap" and realize that it's also completely normal 
+for a codebase--your codebase--to be somewhat hacky, or somewhat buggy,
+in its early prototypical phases. It's *normal*. Researchers that hide
+their code out of embarassment aren't fooling anyone.
 
 What I'm trying to articulate is that being afraid that your code
 isn't "good enough for the internet" kind of ignores the fact that cat
-memes are "good enough for the internet". It also ignores the fact
-that most closed-source research codes you read about in journal
-papers are typically very hacky *and* end up being "good enough for an
-international journal". Think about that.
+memes are "good enough for the internet". It also ignores the fact 
+that most closed-source research codes you read about in journal 
+papers are typically very hacky *and* end up being "good enough 
+for an international journal". Think about that next time you read 
+a paper.
 
 
 ### 3.a.3 What if someone *steals* my code
@@ -163,25 +183,25 @@ writing research code that's:
 
 **Then you should consider--at least pre-publication--putting your
 code into a private/organizational repository.** You can make the code
-public after publishing in a click of a button.
+public after you publish.
 
-However, don't overestimate competitors *too* much. In my experience,
-people are far too lazy to read through other people's code. If your
-codebase is even slightly complex, or involves maintenance (all
-non-trivial codebases need maintenance) then it will take a fair
+However, don't overestimate these competitors *too* much. In my 
+experience, people are far too lazy to read through other people's code. 
+If your codebase is even slightly complex, or requires maintenance (all
+non-trivial codebases require maintenance) then it will take a fair
 amount of effort for an external researcher to maliciously outright
 steal it.
 
-What other teams will *probably* realize, after seeing + trying your
-open-source project, is that it's much more efficient for them to
-collaborate with you. So you might end up in a collaboration in which
+What those researchers will *probably* realize, after seeing + trying your
+open-source project, is that it's much more efficient for them to get you
+to do it for them. So you might end up in a collaboration in which
 you help them run your code, or you agree to enhance your code for
 their research.
 
 Being scared of theft mostly only applies to the core
-codes/algorithms/results you plan on publishing. This is *usually* a
-minority of the code researchers write, because the majority is stuff
-like:
+codes/algorithms/results you plan on publishing. That kind of code is
+actually *usually* a minority of the code researchers typically write, 
+because the majority of the code they write is stuff like:
 
 - Some script for converting IMU data into a CSV file
 - Some other script that converts such-and-such a file into an OpenSim
@@ -189,7 +209,7 @@ like:
 - Some little framework that's used for downloading datasets over the
   internet
 
-All stuff that's insanely useful for day-to-day research, but probably
+All of that code is insanely useful for day-to-day research, but probably
 can't be used directly in a publication. That's the kind of code that
 benefits most from sharing, because there's probably 10 different
 scripts for processing IMU data in the wild.
