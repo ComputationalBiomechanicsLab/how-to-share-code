@@ -221,6 +221,15 @@ This is useful because, even if you don't want to share your code,
 knowing how to use git locally allows you to save snapshots of your
 code.
 
+> **Note**: The steps written below are *rough* - you might need to do
+>           things slightly differently.. The reason why they are rough is
+>           because I'll be going through these steps during the tutorial,
+>           and because I have recorded the steps as videos, which (in my
+>           opinion) are easier to follow than a written "click here, do 
+>           this, do that" guide.
+
+> **Note #2**: Written steps assume you're using GitHub desktop.
+
 
 ### 3.b.1. Put all of your code into one directory
 
@@ -254,16 +263,59 @@ directory.
 [🎥 VIDEO: Doing this in Windows with TortoiseGit](https://youtu.be/8Pu1_89hPIk)
 
 Any directory can be augmented with a git repository, such that any
-changes in that directory can later be comitted to the git repository.
+changes to that directory can later be comitted to the repository.
 
-Go to your directory and `Initialize a git repo` (TODO: windows?)
-- `init`
-- `add`
-- `commit`
+Steps:
 
-Once you have comitted the `add`ed files to your local git repository,
-you have created an immutable snapshot of your work at a particular
-point in time.
+- In the GitHub desktop application (GHDA), try to open your 
+  working directory as an existing repository. The app will 
+  notice that your directory isn't a repository yet and suggest you 
+  create one. Do that.
+
+- The GHDA will automatically record the current state of your directory
+  as an "initial commit"
+
+- Any changes you make to that directory will now be detected in the
+  GHDA. Experiment with this by changing a file an checking whether
+  the change appears in the UI (it should)
+
+- If you want to "commit" those changes to a new snapshot, you can do
+  that through the UI in the bottom-right
+
+- The UI also has features for reverting a change back to its original
+  state, or checking out earlier versions of the directory (I'm not
+  going to write all of that down here - just experiment with a throwaway
+  directory, it's fairly intuitive)
+
+Key points:
+
+- Local git repositories collect your **commits** (snapshots) into a
+  hidden directory called `.git` in your working directory.
+
+- A commit is effectively a snapshot of your directory's content
+  at some point in time, plus some commit metadata (message, who
+  committed it, when it was commited, etc.)
+
+- There is no special "behind the scenes" database that git uses. 
+  For this reason, you do not need an internet connection to record
+  a commit, because local snapshots snapshots effectively just "end 
+  up" in the local `.git` directory. 
+
+- So, a "git augmented" directory is not special. It's just a normal 
+  directory with a `.git` directory hidden inside it. If you don't 
+  quite trust git (you should, though), then you can just continue 
+  to just backup by copying your directory as usual. Nothing should
+  break if you do that.
+
+- (bonus) The local repository you made is a complete repository, not
+  just a small part of one. When you"clone" a remote repository from 
+  GitHub (e.g. OpenSim) then you will also end up with a complete--local--OpenSim repository that also has the full history 
+  *but* is entirely independent of GitHub.
+
+
+Other reading:
+
+- [git book](https://git-scm.com/book/en/v2). Specifically, the [overview](https://git-scm.com/book/en/v2/Getting-Started-What-is-Git%3F) has a decent explanation of what git is and [recording changes](https://git-scm.com/book/en/v2/Git-Basics-Recording-Changes-to-the-Repository) has a fairly comprehensive overview of the various commit states (don't worry so much about this in the early days)
 
 
 ## 3.c. Using GitHub
@@ -273,20 +325,61 @@ point in time.
 
 GitHub is an online service for hosting git repositories.
 
-You can use it like a backup system by keeping all of your
-repositories private, but the main value-add of GitHub is that it
-makes it easier to share codebases.
+Ignoring all of GitHub's features, you could just use it as a 
+backup system. However, the main value-add of GitHub is that it
+makes it easier to share codebases, changes, comments, etc. 
 
-### 3.c.1. Create a Blank Repository on GitHub
+Without GitHub, you'd have to send code patches via email and - this 
+is effectively git was (and still is, on some projects) used. With 
+GitHub, you can usually just send a link, or tag someone on something 
+(e.g. "hey @adamkewley, what's going on with this `if` statement, huh?").
 
-### 3.c.2. Configure your local Repository to use the GitHub Repository as a Remote
 
-### 3.c.3. Push your local changes to GitHub
+Steps:
 
-### 3.c.4. View Changes
+- Open your repository in the GitHub desktop application (GHDA) and 
+  click "Publish repository" at the top
 
-### 3.c.5. (bonus) commit diffs, commenting on code, issues, etc.
+- Decide on whether you would like it to be public/private, what name
+  you would like it to have, etc.
 
+- Click "publish repository"
+
+- Done. Now you should be able to browse to your GitHub account and
+  see the new repository
+
+- For later work, you will continue to change files and then commit
+  changes. **However**, those commits are only written to your local
+  repository. You need to `push` those changes to GitHub. Usually, after
+  you commit something in the GHDA, then a button will pop up asking
+  whether you would like to *also* push the changes to GitHub.
+
+- Now that your code is github, you should be able to view the files
+  online, link to them, comment on them, add issues, etc.
+
+
+Key points:
+
+- Git is a *distributed* version control system. What this means practically
+  is that multiple copies of your repository can exist on multiple computers.
+  There is no *central* git repository. There's just places that can hold
+  copies of repositories. Your local repository is one copy. Your GitHub
+  repository is another.
+
+- To "copy" commits from one repository (e.g. your local one) to some remote
+  location (e.g. GitHub), you need to `push` the changes. Most git UIs have
+  this feature.
+
+- Again, GitHub is just one remote location that you can push to. Equally,
+  you could set `C:\Dropbox\MyRepositoryMirrors\MyRepo.git` as a "remote"
+  and `push` to that.
+
+Other Repository Hosting Services:
+
+- [gitlab](https://about.gitlab.com/)
+- [bitbucket](https://bitbucket.org/)
+- [azure devops](https://azure.microsoft.com/en-us/services/devops/)
+- [sourceforge](https://sourceforge.net/)
 
 
 ## 4.c. Collaborating on GitHub
@@ -294,15 +387,69 @@ makes it easier to share codebases.
 [🎥 VIDEO: Doing this in Windows with GitHub desktop](https://youtu.be/I649yZ4IAcw)
 [🎥 VIDEO: Doing this in Windows with TortoiseGit](https://youtu.be/S6n5HvWy6UQ)
 
-GitHub is specifically designed to make it easy to collaborate on
-codebases. It's geared towards software developer teams, but the
-features that make it useful for software teams can also make it
-useful for smaller research teams.
+GitHub is geared towards software developer teams, but the features 
+that make it useful in software development can also make it useful
+in research teams.
 
-### 4.c.1. Fork This Repository
+You might not actually collaborate on GitHub much, especially if you 
+are mostly writing isolated pieces of code that only you care about.
+The reason I'm showing this is mostly to show that editing other 
+people's code isn't a big deal. 
 
-### 4.c.2. Clone the Fork
+Pushing changes is effectively five steps (fork, clone, change, push, PR). 
+The main barrier in the process is generally organizational (e.g. some 
+projects will require a bunch of extra work, or steps, before you can 
+PR them). 
 
-### 4.c.3. Edit Something
+Steps:
 
-### 4.c.4. Create a PR
+- Browse to the project you want to contribute to in GitHub
+
+- Create a `fork` by clicking the fork button in the top-right. This
+  creates a completely independent remote copy of the project under
+  your user account.
+
+- Use the GitHub desktop application (GHDA) to clone your fork locally.
+  File menu -> Clone Repository. You now have a local copy of your 
+  remote fork
+
+- Edit this local copy as much as you want - it's yours, after all. The
+  primitive operations are still the same (change things, commit changes,
+  etc.).
+
+- Push your local changes to your github account in exactly the same way
+  you did above when publishing/pushing your local repository to GitHub
+
+- Your remote fork now contains your changes, and you want those changes
+  to be accepted "upstream" in the original project, so that everyone using
+  the upstream project can benefit from your changes
+
+- Browse to your fork in GitHub (typically: go to "My Repositories" and 
+  click the fork)
+
+- The UI should notice that your fork is "ahead of OriginalProject by n 
+  commits". Click "Create Pull Request" to request that your changes are
+  pulled into the original project
+
+
+Key Points:
+
+- `fork` is a special word that (effectively) means "a copy of some other
+  repository". A forked repository is its own, independent, repository. It
+  just *also* has (weak) link to the original project, so that changes in
+  the fork can be pushed back to the orignal repository (provided they 
+  "pull" your "pushed" changes - see ;))
+
+- A pull request (PR) is a special phrase that means "I am requesting that
+  you (the original project) pull my changes". PRs typically also contain
+  a top-level explanation of what those changes do. 
+
+- Different projects have different PR styles. It's always best to 
+  clearly explain what a PR does (e.g. "makes it work on Linux") and 
+  why you changed it (e.g. "because we perform experiments on Linux
+  a lot").
+
+- There is no enforced writing style or format for PRs. It really depends
+  on what project you are PRing and what your PR does. PRing a friend's
+  code with a minor change is going to be much more laid-back than PRing
+  OpenSSL.
